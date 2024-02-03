@@ -10,9 +10,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class EmailAdminApplication {
 
+
 	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+	public PasswordEncoder passwordEncoder(){
+	    return new BCryptPasswordEncoder();
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(EmailAdminApplication.class, args);

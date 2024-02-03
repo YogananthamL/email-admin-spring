@@ -8,9 +8,10 @@
 </head>
 <body>
 
-<h2>User Registration</h2>
+<h2>Employee Registration</h2>
 
 <form th:action="@{/employees/save}" th:object="${employee}" method="POST">
+   <input type="hidden" th:field="*{id}">
   <!-- First Name -->
   <label for="firstName">First Name:</label>
   <input type="text" id="firstName" th:field="*{firstName}" required>
@@ -21,6 +22,6 @@
 
   <input type="submit" value="Register">
 </form>
-
+<a th:href="@{/employees/list}"> Go back to employee list</a>
 </body>
 </html>

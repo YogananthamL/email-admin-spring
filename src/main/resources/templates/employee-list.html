@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h2>User Information</h2>
+<h2>Employee Information</h2>
 
 <a th:href="@{/employees/form}" class="btn btn-primary btn sm mb-3">Add New Employee</a>
 <table>
@@ -18,12 +18,19 @@
         <th>Last Name</th>
         <th>Email</th>
         <th>Password</th>
+        <th>Action</th>
     </tr>
     <tr th:each="tempEmployee:${employees}">
         <td th:text="${tempEmployee.firstName}"></td>
         <td th:text="${tempEmployee.lastName}"></td>
         <td th:text="${tempEmployee.email}"></td>
         <td th:text="${tempEmployee.password}"></td>
+        <td>
+            <a th:href="@{/employees/update(employeeId=${tempEmployee.id})}"
+            class="btn btn-info btn-sm">Update</a>
+            <a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
+               class="btn btn-info btn-sm">Delete</a>
+        </td>
     </tr>
 
 </table>

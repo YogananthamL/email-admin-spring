@@ -4,10 +4,7 @@ import com.spring.emailadmin.entity.Employee;
 import com.spring.emailadmin.service.EmployeeServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/employees")
@@ -34,6 +31,19 @@ public class EmployeeController {
         employee.setEmail(service.emailGenerate(employee));
         employee.setPassword(service.passwordSet(employee));
         service.save(employee);
+        return "redirect:/employees/list";
+    }
+
+    @GetMapping("/update")
+    public String updateEmployee(@RequestParam("employeeId") int id, Model model){
+        Employee employee=service.findById(id);
+        model.addAttribute("employee",employee);
+        return "employee-form";
+    }
+
+    @GetMapping("/delete")
+    public String deleteEmployee(@RequestParam("employeeId") int id){
+        service.delete(id);
         return "redirect:/employees/list";
     }
 }
