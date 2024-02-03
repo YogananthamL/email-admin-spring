@@ -13,4 +13,12 @@ public interface employeeService {
     public void save(Employee employee);
 
     public void delete(int id);
+
+    public String emailGenerate(Employee employee);
+
+    public String passwordSet(Employee employee);
+
+    public String passwordGenerate();
+
+
 }
