@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/employee-list.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>User Information Table</title>
 </head>
 <body>
 
 <h2>User Information</h2>
 
+<a th:href="@{/employees/form}" class="btn btn-primary btn sm mb-3">Add New Employee</a>
 <table>
     <tr>
         <th>First Name</th>
